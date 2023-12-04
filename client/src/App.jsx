@@ -3,6 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+// Import Components 
+import Cards from './pages/Cards'
+// Import Bootstrap 
+import "bootstrap/dist/css/bootstrap.min.css"
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -17,13 +22,7 @@ function App() {
 
   return (
    <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
-        <div className="container">
-          <Outlet />
-        </div>
-        <Footer />
-      </div>
+      <Cards/>
     </ApolloProvider>
   )
 }
