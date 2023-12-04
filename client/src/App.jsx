@@ -7,6 +7,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 // Import Components 
 import Cards from './pages/Cards'
 import NavBar from './components/NavBar'
+
 // Import Bootstrap 
 import "bootstrap/dist/css/bootstrap.min.css"
 
