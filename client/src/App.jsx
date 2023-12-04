@@ -20,6 +20,7 @@ function App() {
 
   return (
    <ApolloProvider client={client}>
+      <NavBar />
       <Cards/>
     </ApolloProvider>
   )
