@@ -2,18 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 // Import Components 
 import Cards from './pages/Cards'
 // Import Bootstrap 
 import "bootstrap/dist/css/bootstrap.min.css"
 
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
-
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: '/graphql',
   cache: new InMemoryCache(),
 });
 
