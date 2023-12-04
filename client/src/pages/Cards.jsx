@@ -1,3 +1,4 @@
+import '../../style/Cards.css'
 import $ from "jquery";
 
 const Cards = () =>{
