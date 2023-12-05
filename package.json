@@ -3,24 +3,25 @@
     "version": "1.0.0",
     "main": "server/server.js",
     "scripts": {
-      "start": "node server/server.js --ignore client",
-      "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
-      "install": "cd server && npm i && cd ../client && npm i",
-      "seed": "cd server && npm run seed",
-      "build": "cd client && npm run build"
+        "start": "node server/server.js --ignore client",
+        "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+        "install": "cd server && npm i && cd ../client && npm i",
+        "seed": "cd server && npm run seed",
+        "build": "cd client && npm run build"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
-      "concurrently": "^5.3.0"
+        "concurrently": "^5.3.0"
     },
     "dependencies": {
-      "@apollo/client": "^3.8.8",
-      "bootstrap": "^5.3.2",
-      "graphql": "^16.8.1",
-      "react-slick": "^0.29.0",
-      "slick-carousel": "^1.8.1"
+        "@apollo/client": "^3.8.8",
+        "bootstrap": "^5.3.2",
+        "graphql": "^16.8.1",
+        "react-icons": "^4.12.0",
+        "react-slick": "^0.29.0",
+        "slick-carousel": "^1.8.1"
     },
     "keywords": [],
     "description": ""
-  }
+}
