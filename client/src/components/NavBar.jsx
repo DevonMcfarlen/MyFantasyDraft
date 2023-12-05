@@ -28,6 +28,13 @@ const currentPage = useLocation().pathname;
                     </div>
                     <div className="nav-item nav-link">
                       <Link
+                      to="/login"
+                      className={currentPage === '/' ? 'nav-link' : 'nav-link'}
+                      >Login
+                      </Link>
+                    </div>
+                    <div className="nav-item nav-link">
+                      <Link
                       to="/profile"
                       className= {currentPage === '/' ? 'nav-link' : 'nav-link'}
                       >Profile
