@@ -5,7 +5,7 @@ import viteLogo from '/vite.svg'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 // Import Components 
-// import Cards from './pages/Cards'
+import Cards from './pages/Cards'
 import NavBar from './components/NavBar'
 
 // Import Bootstrap 
@@ -21,6 +21,7 @@ function App() {
 
   return (
    <ApolloProvider client={client}>
+      <NavBar/>
       <Cards/>
     </ApolloProvider>
   )
