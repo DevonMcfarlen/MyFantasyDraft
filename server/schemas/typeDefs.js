@@ -9,6 +9,13 @@ const typeDefs = `
         users: [User]
         user(username: String!): User
       }
+      type Auth {
+        token: ID!
+        user:User
+    }
+    type mutation {
+        login(email: String!, password: String!); Auth
+    }
 `;
 
 module.exports = typeDefs;
