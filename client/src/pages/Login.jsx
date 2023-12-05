@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../style/Login.css'
+import {Link} from 'react-router-dom'
 
 const Login = () => {
     return (
@@ -14,7 +15,7 @@ const Login = () => {
                     <label htmlFor="inputPassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id='inputPassword'/>
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <Link to='/profile' type="submit" className="btn btn-primary">Login</Link>
             </form>
             <form className='signUpForm'>
                 <h2 className='signupHeader'>Sign up</h2>
@@ -30,7 +31,7 @@ const Login = () => {
                     <label htmlFor="inputNewPassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id='inputNewPassword'/>
                 </div>
-                <button type="submit" className="btn btn-primary">Sign up</button>
+                <Link to='/profile' type="submit" className="btn btn-primary">Sign up</Link>
             </form>
         </div>
     );
