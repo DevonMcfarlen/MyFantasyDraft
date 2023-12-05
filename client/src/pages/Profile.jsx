@@ -2,7 +2,6 @@ import '../../style/Profile.css'
 
 const Profile = () =>{
     return(
-        
         <table className="table table-striped">
             <thead>
             <tr>
@@ -24,6 +23,41 @@ const Profile = () =>{
             </tr>
             <tr>
                 <th scope="row">3</th>
+                <td className='firstName'>Larry</td>
+                <td className='lastName'>the Bird</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td className='firstName'>Mark</td>
+                <td className='lastName'>Otto</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td className='firstName'>Jacob</td>
+                <td className='lastName'>Thornton</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td className='firstName'>Larry</td>
+                <td className='lastName'>the Bird</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td className='firstName'>Mark</td>
+                <td className='lastName'>Otto</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td className='firstName'>Jacob</td>
+                <td className='lastName'>Thornton</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td className='firstName'>Larry</td>
+                <td className='lastName'>the Bird</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
                 <td className='firstName'>Larry</td>
                 <td className='lastName'>the Bird</td>
             </tr>
