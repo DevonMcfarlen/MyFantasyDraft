@@ -38,7 +38,7 @@ const LandingPage = () => {
 
     return (
         <div>
-            <NavBar />
+            {/* <NavBar /> */}
             <Slider {...settings}>
                 <div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVS5-NPG9nAnwmI9ZUFtxIgcbX1sgp8XTI9A&usqp=CAU" alt="NBA Image 1"/>

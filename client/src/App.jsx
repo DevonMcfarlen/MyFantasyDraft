@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { Outlet } from 'react-router-dom';
 // import './App.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
-// Import Components 
-
-import Cards from './pages/Cards'
+// import Cards from './pages/Cards'
 import NavBar from './components/NavBar'
 // Import Bootstrap 
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -22,7 +20,7 @@ function App() {
   return (
    <ApolloProvider client={client}>
       <NavBar />
-      <Cards/>
+      <Outlet/>
     </ApolloProvider>
   )
 }
