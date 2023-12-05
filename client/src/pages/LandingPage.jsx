@@ -9,36 +9,67 @@ const LandingPage = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
     };
 
     return (
         <div className="container">
             {/* Carousel Section */}
             <Slider {...settings}>
-                <div>
-                    <img src="https://wallpaperaccess.com/thumb/1523688.jpg" alt="Lebron James" />
-                </div>
-                <div>
-                    <img src="https://wallpaperaccess.com/thumb/1203521.jpg" alt="James Harden" />
-                </div>
-                <div>
-                    <img src="https://wallpaperaccess.com/full/719885.jpg" alt="Steph Curry" />
-                </div>
-                <div>
-                    <img src="https://wallpaperaccess.com/thumb/103106.jpg" alt="NBA Players" />
-                </div>
-                <div>
-                    <img src="https://wallpaperaccess.com/full/1803604.jpg" alt="Luka Doncic" />
-                </div>
-                <div>
-                    <img src="https://wallpaperaccess.com/thumb/464978.png" alt="Kevin Durant" />
-                </div>
-            </Slider>
+    {/* Slide 1 - LeBron James */}
+    <div className="slide">
+        <img src="https://wallpaperaccess.com/thumb/1523688.jpg" alt="Lebron James" />
+        <div className="overlay-text">
+            <h2>LeBron James: The King</h2>
+            <p>Explore the journey and achievements of LeBron James, one of basketball's greatest.</p>
+        </div>
+    </div>
+    {/* Slide 2 - James Harden */}
+    <div className="slide">
+        <img src="https://wallpaperaccess.com/thumb/1203521.jpg" alt="James Harden" />
+        <div className="overlay-text">
+            <h2>James Harden: The Scoring Machine</h2>
+            <p>Delve into the high-scoring game of James Harden, an NBA sensation.</p>
+        </div>
+    </div>
+    {/* Slide 3 - Steph Curry */}
+    <div className="slide">
+        <img src="https://wallpaperaccess.com/full/719885.jpg" alt="Steph Curry" />
+        <div className="overlay-text">
+            <h2>Steph Curry: The Three-Point Legend</h2>
+            <p>Discover Steph Curry's record-breaking three-point shooting skills.</p>
+        </div>
+    </div>
+    {/* Slide 4 - NBA Players */}
+    <div className="slide">
+        <img src="https://wallpaperaccess.com/thumb/103106.jpg" alt="NBA Players" />
+        <div className="overlay-text">
+            <h2>NBA Stars: The Best in the Game</h2>
+            <p>Meet the NBA's top players and their incredible athletic prowess.</p>
+        </div>
+    </div>
+    {/* Slide 5 - Luka Doncic */}
+    <div className="slide">
+        <img src="https://wallpaperaccess.com/full/1803604.jpg" alt="Luka Doncic" />
+        <div className="overlay-text">
+            <h2>Luka Doncic: A Rising Star</h2>
+            <p>Witness the rise of Luka Doncic, a young and talented NBA prodigy.</p>
+        </div>
+    </div>
+    {/* Slide 6 - Kevin Durant */}
+    <div className="slide">
+        <img src="https://wallpaperaccess.com/thumb/464978.png" alt="Kevin Durant" />
+        <div className="overlay-text">
+            <h2>Kevin Durant: The Versatile Leader</h2>
+            <p>Kevin Durant's journey of skill, leadership, and versatility on the court.</p>
+        </div>
+    </div>
+</Slider>
+
 
             <header>
                 <h1>My Fantasy Draft</h1>
