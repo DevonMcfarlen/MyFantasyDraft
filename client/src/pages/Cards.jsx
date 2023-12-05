@@ -111,8 +111,24 @@ const Cards = () =>{
                     getTeam();
                 }}
                 >
-                Add Student
+                Search
             </button>
+            <label>
+                <input type="checkbox"/>
+                <div className="flip-card">
+                    <div className="front">
+                        <h2>Player Name</h2>
+                        <p>Jersey #</p>
+                    </div>
+                    <div className="back">
+                        <p>Avg points</p>
+                        <p>Avg assit</p>
+                        <p>Avg Total Rebounds</p>
+                        <p>Avg FGP</p>
+                        <button className='backBtn'>Add Player</button>
+                    </div>
+                </div>
+            </label>
         </>
     )
 }
