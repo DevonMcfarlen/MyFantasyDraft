@@ -6,6 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 // Import Components 
 // import Cards from './pages/Cards'
+import Profile from './pages/Profile';
 // Import Bootstrap 
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
    <ApolloProvider client={client}>
-  
+        <Profile/>
     </ApolloProvider>
   )
 }
