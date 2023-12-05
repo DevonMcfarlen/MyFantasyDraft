@@ -8,6 +8,7 @@ import{createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Cards from './pages/Cards.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import Profile from './pages/Profile.jsx';
+import Login from './pages/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path:'cards',
         element: <Cards/>
+      },
+      {
+        path:'login',
+        element: <Login/>
       },
       {
         path:'profile',
