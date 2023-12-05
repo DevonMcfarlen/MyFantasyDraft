@@ -1,0 +1,35 @@
+.loginSignUpForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border:2px solid red; */
+    height:80vh;
+}
+.loginForm{
+    border:2px solid black;
+    border-radius: 15px;
+    height:40vh;
+    width:20vw;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signUpForm{
+    margin-left:100px;
+    border:2px solid black;
+    border-radius: 15px;
+    height:40vh;
+    width:20vw;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loginHeader{
+    text-align: center;
+}
+.signupHeader{
+    text-align: center;
+}
