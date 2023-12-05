@@ -66,3 +66,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
