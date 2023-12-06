@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import $ from "jquery";
 
-function Cards(props) {
+function Cards(props) {   
     var playerStats = {
         aPoints: 0,
         aAssists: 0,
