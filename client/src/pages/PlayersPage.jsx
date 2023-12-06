@@ -54,13 +54,7 @@ function PlayersPage() {
 
         return $.ajax(bingSettings).done(function (response) {});
     }
-/*
-    function addPlayerToProfile(player){
-        if (!profilePlayers.find(p => p.id === player.id)) {
-            setProfilePlayers(prevPlayers => [...prevPlayers, player])
-        }
-    }
-    */
+    
     return teamPlayers.length == 0 ? (
         <>
             <header>
