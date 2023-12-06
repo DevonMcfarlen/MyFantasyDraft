@@ -6,6 +6,11 @@ const playerSchema = new Schema({
         required: true,
         trim: true,
     },
+    jersey: {
+        type: Number,
+        required: true,
+        trim: true,
+    },
     stats: {
         type: String,
         required: true,
