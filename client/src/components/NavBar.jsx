@@ -1,11 +1,13 @@
 import '../../style/NavBar.css';
 import {Link, useLocation} from 'react-router-dom'
+import { GiBasketballBasket } from "react-icons/gi";
 
 const NavBar = () => {
 const currentPage = useLocation().pathname;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <h1>MyFantasyDraft</h1>
+        <h1 className='navbar-header'>MyFantasyDraft</h1>
+        <h1 className='basketball-icon'><GiBasketballBasket /></h1>
         <div className="container"></div>
             <div className="navbar-brand">
               <Link

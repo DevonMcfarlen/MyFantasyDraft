@@ -1,3 +1,9 @@
 .container {
     margin-bottom: auto;
 }
+.navbar-header{
+    font-family: 'Poppins', sans-serif;
+}
+.basketball-icon{
+    margin-left: 10px;
+}
