@@ -2,6 +2,23 @@ import { useState } from 'react';
 import $ from "jquery";
 
 function Cards(props) {
+    const [playerStorage, setPlayerStorage] = useState([]);
+
+    var nbaSettings = {};
+
+    function setNBASettings(sentUrl) {
+        var nbaUrl = "https://api-nba-v1.p.rapidapi.com" + sentUrl;
+        nbaSettings = {
+            "url": nbaUrl,
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+            "x-rapidapi-key": "09e77c0237msh7cf79c6d0985d69p119f9cjsnb5866ab39fe8",
+            "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
+            },
+        };
+    }
+
     var playerStats = {
         aPoints: 0,
         aAssists: 0,
@@ -9,21 +26,18 @@ function Cards(props) {
         aFGP: 0.0,
     };
 
-    var playerStorage = [];
-
     function getPlayerStats(userPlayer) {
-        if(playerStorage.find(obj => {return obj.id == teamPlayers[userPlayer].id}))
+        if(playerStorage.find(obj => {return obj.id == props.teamPlayers[userPlayer].id}))
         {
             console.log("found duplicate player");
             return;
         }
 
         let toSendUrl = "/players/statistics?id=" + props.teamPlayers[userPlayer].id + "&season=2023";
-        props.setNBASettings(toSendUrl);
+        setNBASettings(toSendUrl);
         
-        return $.ajax(props.nbaSettings).done(function (response) {
+        return $.ajax(nbaSettings).done(function (response) {
             var playerGames = response.response;
-            console.log(playerGames);
             var pGLength = playerGames.length;
             var tPoints = 0;
             var tAssists = 0;
@@ -42,19 +56,12 @@ function Cards(props) {
             playerStats.aTotReb = Math.round((((tTotReb/pGLength)) + Number.EPSILON) * 100) / 100;
             playerStats.aFGP = Math.round((((tTotReb/pGLength)) + Number.EPSILON) * 100) / 100;
             
-            playerStorage.unshift({id: response.parameters.id, stats: playerStats});
-            console.log(playerStorage)
+            setPlayerStorage([{id: response.parameters.id, stats: playerStats}, ...playerStorage]);
         });
-    }
-    function setStats(index){
-        //playerStats = playerStorage.find(obj => {return obj.id == props.teamPlayers[index].id}).stats;
     }
 
     return props.teamPlayers.map((player, i) => (
         <label key={i}>
-            {console.log(i)}
-            {console.log(player)}
-
             <input type="checkbox"/>
             <div className="flip-card" onClick={() => {getPlayerStats(i)}}>
                 <div className="front">
@@ -62,11 +69,10 @@ function Cards(props) {
                     <p>Jersey # {player.leagues.standard.jersey}</p>
                 </div>
                 <div className="back">
-                    
-                    <p>Avg points: </p>
-                    <p>Avg assists: </p>
-                    <p>Avg Total Rebounds: </p>
-                    <p>Avg FGP: </p>
+                    <p>Avg points: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aPoints) }</p>
+                    <p>Avg assists: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists)}</p>
+                    <p>Avg Total Rebounds: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb)}</p>
+                    <p>Avg FGP: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP)}</p>
                     <button className='backBtn'>Add Player</button>
                 </div>
             </div>
