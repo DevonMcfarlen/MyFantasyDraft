@@ -1,4 +1,5 @@
 {
     "name" : "test name",
+    "jersey": 999,
     "stats" : "N/A"
 }

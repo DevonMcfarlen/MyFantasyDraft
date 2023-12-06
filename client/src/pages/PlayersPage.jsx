@@ -84,8 +84,6 @@ function PlayersPage() {
             </button>
             <Cards 
                 teamPlayers={teamPlayers}
-                nbaSettings={nbaSettings}
-                setNBASettings={setNBASettings}
             />
         </>
     );
