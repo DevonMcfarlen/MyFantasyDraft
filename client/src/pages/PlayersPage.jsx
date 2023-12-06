@@ -7,23 +7,6 @@ import $ from "jquery";
 function PlayersPage() {
     const [teamPlayers, setTeamPlayers] = useState([]);
 
-    var bingSettings = {};
-
-    function setBingSettings(sentUrl) {
-        var bingUrl = "https://bing-image-search1.p.rapidapi.com/images/search?q=" + sentUrl;
-        bingSettings = {
-            async: true,
-            crossDomain: true,
-            url: bingUrl,
-            method: 'GET',
-            headers: {
-            'X-RapidAPI-Key': '23621a63e4msha9fc92986a51b9fp1bfe54jsn18d7163659ca',
-            'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com'
-            },
-        };
-    }
-    var userSeason = 2023;
-
     var nbaSettings = {};
 
     function setNBASettings(sentUrl) {
@@ -40,19 +23,12 @@ function PlayersPage() {
     }
 
     function getTeam() {
-        let toSendUrl = "/players/?team=8&season=" + userSeason;
+        let toSendUrl = "/players/?team=8&season=2023";
         setNBASettings(toSendUrl);
 
         return $.ajax(nbaSettings).done(function (response) {
             setTeamPlayers(response.response);
         });
-    }
-
-    function getPlayerImage(player) {
-        let toSendUrl = 'professional+headshot+of+' + player.firstname + '+' + player.lastname + '+from+espn.com+bio';
-        setBingSettings(toSendUrl);
-
-        return $.ajax(bingSettings).done(function (response) {});
     }
     
     return teamPlayers.length == 0 ? (

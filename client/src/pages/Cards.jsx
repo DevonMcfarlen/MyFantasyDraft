@@ -3,6 +3,7 @@ import $ from "jquery";
 
 function Cards(props) {
     const [playerStorage, setPlayerStorage] = useState([]);
+    const [imageStorage, setImageStorage] = useState([]);
 
     var nbaSettings = {};
 
@@ -60,6 +61,37 @@ function Cards(props) {
         });
     }
 
+    var bingSettings = {};
+
+    function setBingSettings(sentUrl) {
+        var bingUrl = "https://bing-image-search1.p.rapidapi.com/images/search?q=" + sentUrl;
+        bingSettings = {
+            async: true,
+            crossDomain: true,
+            url: bingUrl,
+            method: 'GET',
+            headers: {
+            'X-RapidAPI-Key': '09e77c0237msh7cf79c6d0985d69p119f9cjsnb5866ab39fe8',
+            'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com'
+            },
+        };
+    }
+
+    function getPlayerImage(player) {
+        let toSendUrl = 'professional+headshot+of+' + player.firstname + '+' + player.lastname + '+from+espn.com+bio';
+        setBingSettings(toSendUrl);
+
+        return $.ajax(bingSettings).done(function (response) {
+            setImageStorage([{id: player.id, src: response.value[0].contentUrl}, ...imageStorage]);
+        });
+    }
+    //{setTimeout(() => {getPlayerImage(player)}, 400*i)}
+    // <img src={!imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).src)}/>
+
+    function savePlayer() {
+        
+    }
+
     return props.teamPlayers.map((player, i) => (
         <label key={i}>
             <input type="checkbox"/>
@@ -73,7 +105,7 @@ function Cards(props) {
                     <p>Avg assists: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists)}</p>
                     <p>Avg Total Rebounds: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb)}</p>
                     <p>Avg FGP: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP)}</p>
-                    <button className='backBtn'>Add Player</button>
+                    <button className='backBtn' onClick={() => {savePlayer()}}>Add Player</button>
                 </div>
             </div>
         </label>
