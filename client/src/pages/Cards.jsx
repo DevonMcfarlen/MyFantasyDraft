@@ -71,8 +71,9 @@ function Cards(props) {
                 </div>
             </div>
         </label>
+
+
     ));
 }
   
 export default Cards;
-  
