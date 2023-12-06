@@ -22,6 +22,7 @@ function PlayersPage() {
             },
         };
     }
+
     var userSeason = 2023;
 
     var nbaSettings = {};
@@ -54,7 +55,7 @@ function PlayersPage() {
 
         return $.ajax(bingSettings).done(function (response) {});
     }
-    
+
     return teamPlayers.length == 0 ? (
         <>
             <header>
