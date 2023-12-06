@@ -1,5 +1,6 @@
 import '../../style/NavBar.css';
 import {Link, useLocation} from 'react-router-dom'
+
 const NavBar = () => {
 const currentPage = useLocation().pathname;
   return (
@@ -20,7 +21,7 @@ const currentPage = useLocation().pathname;
                 <div className="navbar-nav ml-auto">
                     <div className="nav-item nav-link">
                       <Link
-                      to="/cards"
+                      to="/players"
                       className={currentPage === '/' ? 'nav-link' : 'nav-link'}
                       >Players
                       </Link>

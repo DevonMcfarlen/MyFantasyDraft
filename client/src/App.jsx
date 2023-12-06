@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { Outlet } from 'react-router-dom';
-// import './App.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
 // import Cards from './pages/Cards'
 import NavBar from './components/NavBar'
 // Import Bootstrap 
@@ -24,7 +22,5 @@ function App() {
     </ApolloProvider>
   )
 }
-
-//TODO
 
 export default App

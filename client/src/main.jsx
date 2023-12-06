@@ -5,7 +5,7 @@ import App from './App.jsx'
 import{createBrowserRouter, RouterProvider} from 'react-router-dom';
 
 // Import pages 
-import Cards from './pages/Cards.jsx';
+import PlayersPage from './pages/PlayersPage.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import Profile from './pages/Profile.jsx';
 import Login from './pages/Login.jsx';
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element:<LandingPage/>
       },
       {
-        path:'cards',
-        element: <Cards/>
+        path:'players',
+        element: <PlayersPage/>
       },
       {
         path:'login',
