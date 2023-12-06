@@ -1,19 +1,52 @@
 import React from 'react';
-import '../../style/Login.css'
-import {Link} from 'react-router-dom'
-
+import '../../style/Login.css';
+import {Link} from 'react-router-dom';
+import {useMutation} from '@apollo/client';
+import {LOGIN_USER} from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
+import auth from '../utils/auth';
 const Login = () => {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error, data }] = useMutation(LOGIN_USER);
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+    
+        setFormState({
+          ...formState,
+          [name]: value,
+        });
+      };
+
+      const LoginFormSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+        try {
+          const { data } = await login({
+            variables: { ...formState },
+          });
+    
+          auth.login(data.login.token);
+        } catch (e) {
+          console.error(e);
+        }
+
+        setFormState({
+          email: '',
+          password: '',
+        });
+      };
+    
     return (
         <div className='loginSignUpForm'>
-            <form className='loginForm'>
+            <form onSubmit={LoginFormSubmit} className='loginForm'>
                 <h2 className='loginHeader'>Login</h2>
                 <div className="mb-3">
                     <label htmlFor="inputEmailUsername" className="form-label">Email/Username</label>
-                    <input type="emailUsername" className="form-control" id='inputEmailUsername' aria-describedby="emailHelp"/>
+                    <input type="emailUsername" className="form-control" id='inputEmailUsername' aria-describedby="emailHelp" value={formState.email} onChange={handleChange}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="inputPassword" className="form-label">Password</label>
-                    <input type="password" className="form-control" id='inputPassword'/>
+                    <input type="password" className="form-control" id='inputPassword' value={formState.password} onChange={handleChange}/>
                 </div>
                 <Link to='/profile' type="submit" className="btn btn-primary">Login</Link>
             </form>
