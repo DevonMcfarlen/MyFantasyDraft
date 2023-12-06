@@ -9,7 +9,6 @@ function PlayersPage() {
     const [teams, setTeams] = useState([
         { id: 1, name: 'Atlanta Hawks'},
         { id: 2, name: 'Boston Celtics'},
-        { id: 3, name: 'Brisbane Bullets'},
         { id: 4, name: 'Brooklyn Nets'},
         { id: 5, name: 'Charlotte Hornets'},
         { id: 6, name: 'Chicago Bulls'},
@@ -18,13 +17,10 @@ function PlayersPage() {
         { id: 9, name: 'Denver Nuggets'},
         { id: 10, name: 'Detroit Pistons'},
         { id: 11, name: 'Golden State Warriors'},
-        { id: 12, name: 'Guangzhou Long-Lions'},
-        { id: 13, name: 'Haifa Maccabi Haifa'},
         { id: 14, name: 'Houston Rockets'},
         { id: 15, name: 'Indiana Pacers'},
         { id: 16, name: 'LA Clippers'},
         { id: 17, name: 'Los Angeles Lakers'},
-        { id: 18, name: 'Melbourne United'},
         { id: 19, name: 'Memphis Grizzlies'},
         { id: 20, name: 'Miami Heat'},
         { id: 21, name: 'Milwaukee Bucks'},
@@ -38,14 +34,13 @@ function PlayersPage() {
         { id: 29, name: 'Portland Trail Blazers'},
         { id: 30, name: 'Sacramento Kings'},
         { id: 31, name: 'San Antonio Spurs'},
-        { id: 32, name: 'Shanghai Sharks'},
-        { id: 33, name: 'Sydney Kings'},
-        { id: 34, name: 'Team Team Durant'},
-        { id: 35, name: 'Team LeBron'},
-        { id: 36, name: 'Away Team Wilbon'},
-        { id: 37, name: 'Home Team Stephen A'},
         { id: 38, name: 'Toronto Raptors'},
+        { id: 40, name: 'Utah Jazz'},
+        { id: 41, name: 'Washington Wizards'}
     ])
+
+
+
     const bingSettings = {
         async: true,
         crossDomain: true,
@@ -116,6 +111,7 @@ function PlayersPage() {
         </>
     )
 }
+
 
 export default PlayersPage;
 
