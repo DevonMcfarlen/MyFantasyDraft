@@ -1,95 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../style/Login.css';
-import {Link} from 'react-router-dom';
-import {useMutation} from '@apollo/client';
-import {LOGIN_USER} from '../utils/mutations';
-import { ADD_USER } from '../utils/mutations';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER, ADD_USER } from '../utils/mutations';
 import auth from '../utils/auth';
-import { useState } from 'react';
 import NavBar from '../components/NavBar';
 
 const Login = () => {
-    const [formState, setFormState] = useState({ email: '', password: '', username: '' });
+    const [loginFormState, setLoginFormState] = useState({ email: '', password: '' });
+    const [signupFormState, setSignupFormState] = useState({ email: '', password: '', username: '' });
     const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
-    const [addUser, {signupError, signupData}] = useMutation(ADD_USER);
+    const [addUser, { signupError, signupData }] = useMutation(ADD_USER);
 
-    const handleChange = (event) => {
+    const handleLoginChange = (event) => {
         const { name, value } = event.target;
-    
-        setFormState({
-          ...formState,
-          [name]: value,
+        setLoginFormState({
+            ...loginFormState,
+            [name]: value,
         });
-      };
+    };
 
-      const LoginFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(formState);
-        try {
-          const { data } = await login({
-            variables: { ...formState },
-          });
-    
-          auth.login(data.login.token);
-        } catch (e) {
-          console.error(e);
-        }
-
-        setFormState({
-          email: '',
-          password: '',
+    const handleSignupChange = (event) => {
+        const { name, value } = event.target;
+        setSignupFormState({
+            ...signupFormState,
+            [name]: value,
         });
-      };
-      const SignupFormSubmit  = async (event) => {
+    };
+
+    const LoginFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
-    
         try {
-          const { data } = await addUser({
-            variables: { ...formState },
-          });
-    
-          auth.login(data.addUser.token);
+            const { data } = await login({
+                variables: { ...loginFormState },
+            });
+            auth.login(data.login.token);
         } catch (e) {
-          console.error(e);
+            console.error(e);
         }
-      };
-    
+    };
+
+    const SignupFormSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const { data } = await addUser({
+                variables: { ...signupFormState },
+            });
+            auth.login(data.addUser.token);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     return (
-      <div className='login-background'>
-        <NavBar/>
-        <div className='loginSignUpForm'>
-            <form onSubmit={LoginFormSubmit} className='loginForm'>
-                <h2 className='loginHeader'>Login</h2>
-                <div className="mb-3">
-                    <label htmlFor="inputEmailUsername" className="form-label">Email/Username</label>
-                    <input type="emailUsername" className="form-control" id='inputEmailUsername' aria-describedby="emailHelp" value={formState.email} onChange={handleChange}/>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="inputPassword" className="form-label">Password</label>
-                    <input type="password" className="form-control" id='inputPassword' value={formState.password} onChange={handleChange}/>
-                </div>
-                <Link to='/profile' type="submit" className="btn btn-primary">Login</Link>
-            </form>
-            <form onSubmit={SignupFormSubmit} className='signUpForm'>
-                <h2 className='signupHeader'>Sign up</h2>
-                <div className="mb-3">
-                    <label htmlFor="inputEmail" className="form-label">Email</label>
-                    <input type="email" className="form-control" id='inputEmail' aria-describedby="emailHelp" value={formState.email} onChange={handleChange} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="inputUsername" className="form-label">Username</label>
-                    <input type="username" className="form-control" id='inputUsername' aria-describedby="usernameHelp" value={formState.username} onChange={handleChange}/>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="inputNewPassword" className="form-label">Password</label>
-                    <input type="password" className="form-control" id='inputNewPassword' value={formState.password} onChange={handleChange}/>
-                </div>
-                <Link to='/profile' type="submit" className="btn btn-primary">Sign up</Link>
-            </form>
-        </div>
+        <div className='login-background'>
+            <NavBar />
+            <div className='loginSignUpForm'>
+                <form onSubmit={LoginFormSubmit} className='loginForm'>
+                    <h2 className='loginHeader'>Login</h2>
+                    <div className="mb-3">
+                        <label htmlFor="inputEmail" className="form-label">Email</label>
+                        <input type="email" className="form-control" id='inputEmail' name="email" aria-describedby="emailHelp" value={loginFormState.email} onChange={handleLoginChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="inputPassword" className="form-label">Password</label>
+                        <input type="password" className="form-control" id='inputPassword' name="password" value={loginFormState.password} onChange={handleLoginChange} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Login</button>
+                </form>
+
+                <form onSubmit={SignupFormSubmit} className='signUpForm'>
+                    <h2 className='signupHeader'>Sign up</h2>
+                    <div className="mb-3">
+                        <label htmlFor="signupEmail" className="form-label">Email</label>
+                        <input type="email" className="form-control" id='signupEmail' name="email" aria-describedby="emailHelp" value={signupFormState.email} onChange={handleSignupChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="signupUsername" className="form-label">Username</label>
+                        <input type="text" className="form-control" id='signupUsername' name="username" aria-describedby="usernameHelp" value={signupFormState.username} onChange={handleSignupChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="signupPassword" className="form-label">Password</label>
+                        <input type="password" className="form-control" id='signupPassword' name="password" value={signupFormState.password} onChange={handleSignupChange} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Sign up</button>
+                </form>
+            </div>
         </div>
     );
-  }
+}
 
 export default Login;
