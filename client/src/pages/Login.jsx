@@ -69,7 +69,7 @@ const Login = () => {
                     <label htmlFor="inputPassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id='inputPassword' value={formState.password} onChange={handleChange}/>
                 </div>
-                <Link to='/profile' type="submit" className="btn btn-primary">Login</Link>
+                <Link to='/profile' type="submit" className="btn btn-primary login-btn">Login</Link>
             </form>
             <form onSubmit={SignupFormSubmit} className='signUpForm'>
                 <h2 className='signupHeader'>Sign up</h2>
@@ -85,7 +85,7 @@ const Login = () => {
                     <label htmlFor="inputNewPassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id='inputNewPassword' value={formState.password} onChange={handleChange}/>
                 </div>
-                <Link to='/profile' type="submit" className="btn btn-primary">Sign up</Link>
+                <Link to='/profile' type="submit" className="btn btn-primary signup-btn">Sign up</Link>
             </form>
         </div>
         </div>
@@ -93,32 +93,3 @@ const Login = () => {
   }
 
 export default Login;
-
-
-
-/*
-
-//  <div className="login-container">
-// /* Login Card */
-// <div className="card login-card">
-//     <h2>Login</h2>
-//     <form>
-//         <input type="Email" placeholder="Email" />
-//         <input type="text" placeholder="Username" />
-//         <input type="password" placeholder="Password" />
-//         <button type="submit">Login</button>
-//     </form>
-// </div> 
-
-// {/* Signup Card */}
-//  <div className="card signup-card">
-//     <h2>Sign Up</h2>
-//     <form>
-//         <input type="email" placeholder="Email" />
-//         <input type="text" placeholder="Username" />
-//         <input type="password" placeholder="Password" />
-//         <button type="submit">Sign Up</button>
-//     </form>
-// </div>
-// </div> 
-
