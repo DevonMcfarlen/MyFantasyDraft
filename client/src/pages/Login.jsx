@@ -69,7 +69,7 @@ const Login = () => {
                     <label htmlFor="inputPassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id='inputPassword' value={formState.password} onChange={handleChange}/>
                 </div>
-                <Link to='/profile' type="submit" className="btn btn-primary">Login</Link>
+                <Link to='/profile' type="submit" className="btn btn-primary login-btn">Login</Link>
             </form>
             <form onSubmit={SignupFormSubmit} className='signUpForm'>
                 <h2 className='signupHeader'>Sign up</h2>
@@ -85,7 +85,7 @@ const Login = () => {
                     <label htmlFor="inputNewPassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id='inputNewPassword' value={formState.password} onChange={handleChange}/>
                 </div>
-                <Link to='/profile' type="submit" className="btn btn-primary">Sign up</Link>
+                <Link to='/profile' type="submit" className="btn btn-primary signup-btn">Sign up</Link>
             </form>
         </div>
         </div>
