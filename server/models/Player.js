@@ -7,7 +7,7 @@ const playerSchema = new Schema({
         trim: true,
     },
     jersey: {
-        type: Number,
+        type: String,
         required: true,
         trim: true,
     },
