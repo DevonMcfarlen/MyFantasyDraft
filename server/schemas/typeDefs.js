@@ -26,7 +26,7 @@ const typeDefs = `
         player(playerId: ID!): Player
     }
 
-    type Mutation {
+    type Mutation{
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
     }
