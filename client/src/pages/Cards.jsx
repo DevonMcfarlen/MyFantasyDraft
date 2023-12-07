@@ -63,7 +63,6 @@ function Cards(props) {
 
     return props.teamPlayers.map((player, i) => (
         <>
-        <NavBar/>
         <label key={i}>
             <input type="checkbox"/>
             <div className="flip-card" onClick={() => {getPlayerStats(i)}}>
