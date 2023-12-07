@@ -4,7 +4,6 @@
     align-items: center;
     /* border:2px solid red; */
     height:80vh;
-    border:2px solid red;
 }
 .loginForm{
     border:2px solid black;
@@ -30,10 +29,19 @@
 }
 .loginHeader{
     text-align: center;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
 }
 .signupHeader{
     text-align: center;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
 }
 .login-background{
     background: linear-gradient(to bottom right, #0a0f0d, #003973); 
+    height:100vh;
+}
+.form-label{
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
 }
