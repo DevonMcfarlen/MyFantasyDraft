@@ -4,6 +4,8 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../../style/LandingPage.css';
+import NavBar from '../components/NavBar';
+import { GiBasketballBasket } from "react-icons/gi";
 // comment to push again
 const LandingPage = () => {
     const settings = {
@@ -17,6 +19,9 @@ const LandingPage = () => {
     };
 
     return (
+        <div className='landing-background'>
+        <NavBar/>
+        <div>
             <div className="container">
                 {/* Carousel Section */}
                 <Slider {...settings}>
@@ -70,8 +75,9 @@ const LandingPage = () => {
                     </div>
                 </Slider>
 
-                <header>
+                <header className='landing-header'>
                     <h1>My Fantasy Draft</h1>
+                    <h1 className='landingIcon'><GiBasketballBasket /></h1>
                 </header>
 
                 <main>
@@ -97,6 +103,8 @@ const LandingPage = () => {
                     </div>
                 </main>
             </div>
+        </div>
+        </div>
     );
 }
 

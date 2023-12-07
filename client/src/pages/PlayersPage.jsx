@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Cards from './Cards';
 import '../../style/Cards.css';
 import $ from "jquery";
+import NavBar from '../components/NavBar';
 
 function PlayersPage() {
     const [teamPlayers, setTeamPlayers] = useState([]);
@@ -86,9 +87,10 @@ function PlayersPage() {
 
         $.ajax(bingSettings).done(function (response) {});
     };
-
+            
     return (
-        <>
+        <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom right, #0a0f0d, #003973)' }}>
+            <NavBar />
             <header>
                 <h1>{selectedTeam ? `${teams.find((team) => team.id === Number(selectedTeam)).name}'s Player Statistics` : 'NBA Player Statistics'}</h1>
             </header>
@@ -106,8 +108,8 @@ function PlayersPage() {
                 </button>
             </div>
             {teamPlayers.length > 0 && <Cards teamPlayers={teamPlayers} />}
-        </>
+        </div>
     )
 }
-
+        
 export default PlayersPage;

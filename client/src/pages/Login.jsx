@@ -6,6 +6,8 @@ import {LOGIN_USER} from '../utils/mutations';
 import { ADD_USER } from '../utils/mutations';
 import auth from '../utils/auth';
 import { useState } from 'react';
+import NavBar from '../components/NavBar';
+
 const Login = () => {
     const [formState, setFormState] = useState({ email: '', password: '', username: '' });
     const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
@@ -53,6 +55,8 @@ const Login = () => {
       };
     
     return (
+      <div className='login-background'>
+        <NavBar/>
         <div className='loginSignUpForm'>
             <form onSubmit={LoginFormSubmit} className='loginForm'>
                 <h2 className='loginHeader'>Login</h2>
@@ -82,6 +86,7 @@ const Login = () => {
                 </div>
                 <Link to='/profile' type="submit" className="btn btn-primary">Sign up</Link>
             </form>
+        </div>
         </div>
     );
   }
