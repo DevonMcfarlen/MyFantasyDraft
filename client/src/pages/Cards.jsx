@@ -108,7 +108,7 @@ function Cards(props) {
                             <p>Avg assists: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists)}</p>
                             <p>Avg Total Rebounds: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb)}</p>
                             <p>Avg FGP: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP)}</p>
-                            <button className='backBtn' onClick={() => {savePlayer()}}>Add Player</button>
+                            <button className='backBtn btn btn-primary' onClick={() => {savePlayer()}}>Add Player</button>
                         </div>
                     </div>
                 </label>
