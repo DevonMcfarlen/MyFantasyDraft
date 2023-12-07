@@ -1,8 +1,11 @@
 import '../../style/Profile.css'
 import { FaRegTrashAlt } from "react-icons/fa";
+import NavBar from '../components/NavBar';
 
 const Profile = () =>{ 
     return(
+        <>
+        <NavBar/>
         <table className="table table-striped">
             <thead>
             <tr>
@@ -20,8 +23,8 @@ const Profile = () =>{
                 <td><button className='trashBtn'><FaRegTrashAlt/></button></td>
             </tr>
             </tbody> 
-      </table>
-
+        </table>
+        </>
 
 
     //          <tr>

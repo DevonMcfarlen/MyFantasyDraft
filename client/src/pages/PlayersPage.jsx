@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Cards from './Cards';
 import '../../style/Cards.css';
 import $ from "jquery";
+import NavBar from '../components/NavBar';
 
 function PlayersPage() {
     const [teamPlayers, setTeamPlayers] = useState([]);
@@ -89,6 +90,7 @@ function PlayersPage() {
 
     return (
         <>
+            <NavBar/>
             <header>
                 <h1>{selectedTeam ? `${teams.find((team) => team.id === Number(selectedTeam)).name}'s Player Statistics` : 'NBA Player Statistics'}</h1>
             </header>

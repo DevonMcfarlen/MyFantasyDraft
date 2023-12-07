@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../../style/LandingPage.css';
+import NavBar from '../components/NavBar';
 // comment to push again
 const LandingPage = () => {
     const settings = {
@@ -17,6 +18,9 @@ const LandingPage = () => {
     };
 
     return (
+        <div className='landing-background'>
+        <NavBar/>
+        <div>
             <div className="container">
                 {/* Carousel Section */}
                 <Slider {...settings}>
@@ -97,6 +101,8 @@ const LandingPage = () => {
                     </div>
                 </main>
             </div>
+        </div>
+        </div>
     );
 }
 

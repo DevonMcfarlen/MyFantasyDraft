@@ -4,14 +4,14 @@
 .navbar-header{
     font-family: 'Gasoek One', sans-serif;
     margin-left: 10px;
+    /* color:#fff; */
 }
 .basketball-icon{
     margin-left: 10px;
+    color:#fff;
 }
-.navbar-brand{
+
+#navLink{
+    /* color:white; */
     font-family: 'Montserrat', sans-serif;
-}
-.nav-item{
-    font-family: 'Montserrat', sans-serif;
-     margin-bottom: auto;
 }

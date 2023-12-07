@@ -2,8 +2,9 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+}
+.landing-background{
     background: linear-gradient(to bottom right, #0a0f0d, #003973); 
-    color: #fff;
 }
 
 .container {
@@ -70,10 +71,12 @@ main {
 
 .overlay-text p {
     font-size: 1.1rem; 
+}
 .overlay-text h2, .overlay-text p {
     margin: 0;
     line-height: 1.5; 
     font-family: 'Montserrat', sans-serif;
+}
 .overlay-text h2, .overlay-text p {
     margin: 0;
 }
