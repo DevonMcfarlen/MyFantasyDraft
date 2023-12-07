@@ -4,6 +4,7 @@
     align-items: center;
     /* border:2px solid red; */
     height:80vh;
+    border:2px solid red;
 }
 .loginForm{
     border:2px solid black;
@@ -32,4 +33,7 @@
 }
 .signupHeader{
     text-align: center;
+}
+.login-background{
+    background: linear-gradient(to bottom right, #0a0f0d, #003973); 
 }
