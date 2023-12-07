@@ -1,6 +1,7 @@
 label{
     cursor:pointer;
 }
+
 .flip-card{
     position:relative;
     transform-style:preserve-3d;
@@ -53,4 +54,3 @@ input{
 .card-header{
     text-align: center;
 }
-
