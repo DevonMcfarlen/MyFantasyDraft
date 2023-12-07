@@ -21,7 +21,7 @@ const userSchema = new Schema({
     players: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Players',
+            ref: 'Player',
             maxlength: 10,
         }
     ]

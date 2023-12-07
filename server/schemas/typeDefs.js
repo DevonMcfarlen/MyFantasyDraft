@@ -1,20 +1,34 @@
 const typeDefs = `
     type User {
+        _id: ID
         username: String
         email: String
         password: String
+        players: [Player]!
+    }
+
+    type Player {
+        _id: ID
+        name: String
+        jersey: Number
+        stats: String
+    }
+
+    type Auth {
+        token: ID!
+        user: User
     }
 
     type Query {
-        users: [User]
+        users: [User]!
         user(username: String!): User
-      }
-      type Auth {
-        token: ID!
-        user:User
+        players(username: String): [Player]
+        player(playerId: ID!): Player
     }
+
     type mutation {
-        login(email: String!, password: String!); Auth
+        addUser(username: String!, email: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
     }
 `
 
