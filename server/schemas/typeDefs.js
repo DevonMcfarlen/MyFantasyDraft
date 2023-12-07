@@ -14,7 +14,7 @@ const typeDefs = `
         user:User
     }
     type mutation {
-        login(email: String!, password: String!); Auth
+        login(email: String!, password: String!): Auth
     }
 `
 
