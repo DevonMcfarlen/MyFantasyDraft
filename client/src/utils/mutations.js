@@ -11,6 +11,7 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
@@ -18,8 +19,17 @@ export const ADD_USER = gql`
       user {
         _id
         username
-        email
-        password
+      }
+    }
+  }
+`;
+
+export const ADD_PLAYER = gql`
+  mutation addPlayer($name: String!, $jersey: String!, $stats: String!, $username: String!) {
+    addUser(name: $name, jersey: $jersey, stats: $stats, username: $username) {
+      player {
+        _id
+        name
       }
     }
   }
