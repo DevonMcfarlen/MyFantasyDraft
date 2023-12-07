@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar';
 function PlayersPage() {
     const [teamPlayers, setTeamPlayers] = useState([]);
     const [selectedTeam, setSelectedTeam] = useState("");
+    
     const [teams, setTeams] = useState([
         { id: 1, name: 'Atlanta Hawks'},
         { id: 2, name: 'Boston Celtics'},
@@ -40,18 +41,6 @@ function PlayersPage() {
         { id: 41, name: 'Washington Wizards'}
     ])
 
-
-    const bingSettings = {
-        async: true,
-        crossDomain: true,
-        url: "https://bing-image-search1.p.rapidapi.com/images/search?q=",
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '23621a63e4msha9fc92986a51b9fp1bfe54jsn18d7163659ca',
-            'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com'
-        },
-    };
-
     const nbaSettings = {
         url: "https://api-nba-v1.p.rapidapi.com",
         method: "GET",
@@ -64,10 +53,6 @@ function PlayersPage() {
 
     const userSeason = 2023;
 
-    const setBingSettings = (sentUrl) => {
-        bingSettings.url = "https://bing-image-search1.p.rapidapi.com/images/search?q=" + sentUrl;
-    };
-
     const setNBASettings = (sentUrl) => {
         nbaSettings.url = "https://api-nba-v1.p.rapidapi.com" + sentUrl;
     };
@@ -79,13 +64,6 @@ function PlayersPage() {
         $.ajax(nbaSettings).done(function (response) {
             setTeamPlayers(response.response);
         });
-    };
-
-    const getPlayerImage = (player) => {
-        const toSendUrl = 'professional+headshot+of+' + player.firstname + '+' + player.lastname + '+from+espn.com+bio';
-        setBingSettings(toSendUrl);
-
-        $.ajax(bingSettings).done(function (response) {});
     };
             
     return (

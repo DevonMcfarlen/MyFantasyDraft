@@ -1,5 +1,6 @@
 const { User, Player } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+
 const resolvers = {
     Query: {
         users: async () => {
@@ -8,12 +9,12 @@ const resolvers = {
         user: async (parent, {username}) => {
             return User.findOne({username}).populate("Player");
         },
-        Player: async (parent, {username}) => {
+        players: async (parent, {username}) => {
             const params = username ? {username} : {};
             return Player.find(params).sort({ createdAt: -1});
         },
-        Player: async (parent, { PlayerId }) => {
-            return Player.findOne({_id: PlayerId});
+        player: async (parent, { playerId }) => {
+            return Player.findOne({_id: playerId});
         },
     },
 
