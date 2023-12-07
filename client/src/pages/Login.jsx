@@ -3,7 +3,7 @@ import '../../style/Login.css';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER, ADD_USER } from '../utils/mutations';
-import auth from '../utils/auth';
+import Auth from '../utils/auth';
 import NavBar from '../components/NavBar';
 
 const Login = () => {
@@ -14,6 +14,7 @@ const Login = () => {
 
     const handleLoginChange = (event) => {
         const { name, value } = event.target;
+
         setLoginFormState({
             ...loginFormState,
             [name]: value,
@@ -22,6 +23,7 @@ const Login = () => {
 
     const handleSignupChange = (event) => {
         const { name, value } = event.target;
+
         setSignupFormState({
             ...signupFormState,
             [name]: value,
@@ -30,27 +32,41 @@ const Login = () => {
 
     const LoginFormSubmit = async (event) => {
         event.preventDefault();
+        console.log(loginFormState)
         try {
             const { data } = await login({
                 variables: { ...loginFormState },
             });
-            auth.login(data.login.token);
+            Auth.login(data.login.token);
         } catch (e) {
             console.error(e);
         }
+        setLoginFormState({
+          email: '',
+          password: ''
+        });
     };
 
     const SignupFormSubmit = async (event) => {
         event.preventDefault();
+        console.log('in signup')
         try {
             const { data } = await addUser({
                 variables: { ...signupFormState },
             });
-            auth.login(data.addUser.token);
+            Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
         }
+
+        setSignupFormState({
+          email: '',
+          password: '',
+          username: '',
+        });
     };
+
+    
 
     return (
         <div className='login-background'>
