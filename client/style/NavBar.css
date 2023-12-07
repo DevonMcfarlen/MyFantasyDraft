@@ -2,8 +2,15 @@
     margin-bottom: auto;
 }
 .navbar-header{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    margin-left: 10px;
 }
 .basketball-icon{
     margin-left: 10px;
+}
+.navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+}
+.nav-item{
+    font-family: 'Montserrat', sans-serif;
 }

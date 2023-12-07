@@ -21,6 +21,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5rem;
+    font-family: 'Gasoek One', sans-serif;
 }
 
 main {
@@ -64,12 +65,14 @@ main {
     font-weight: bold;
     margin: 0 0 10px 0; 
     line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .overlay-text p {
     font-size: 1.1rem; 
     margin: 0;
     line-height: 1.5; 
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -82,6 +85,7 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .welcome-section:hover {
