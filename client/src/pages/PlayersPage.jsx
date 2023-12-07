@@ -67,12 +67,12 @@ function PlayersPage() {
     };
             
     return (
-        <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom right, #0a0f0d, #003973)' }}>
+        <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom right, #0a0f0d, #003973)'}}>
             <NavBar />
             <header>
                 <h1>{selectedTeam ? `${teams.find((team) => team.id === Number(selectedTeam)).name}'s Player Statistics` : 'NBA Player Statistics'}</h1>
             </header>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBotton: '20px'}}>
                 <select value={selectedTeam} onChange={(e) => setSelectedTeam(e.target.value)}>
                     <option value="">Select a team</option>
                     {teams.map((team) => (
@@ -81,7 +81,7 @@ function PlayersPage() {
                         </option>
                     ))}
                 </select>
-                <button type="button" onClick={getTeam}>
+                <button type="button" onClick={getTeam} style={{ marginLeft: '10px'}}>
                     Search
                 </button>
             </div>
