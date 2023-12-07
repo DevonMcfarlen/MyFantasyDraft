@@ -1,5 +1,5 @@
 .container {
-    margin-bottom: auto;
+     margin-bottom: auto;
 }
 .navbar-header{
     font-family: 'Gasoek One', sans-serif;
@@ -13,4 +13,5 @@
 }
 .nav-item{
     font-family: 'Montserrat', sans-serif;
+     margin-bottom: auto;
 }

@@ -1,4 +1,4 @@
-import '../../style/NavBar.css';
+import '../../style/NavBar.css'
 import {Link, useLocation} from 'react-router-dom'
 import { GiBasketballBasket } from "react-icons/gi";
 

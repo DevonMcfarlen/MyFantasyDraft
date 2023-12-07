@@ -84,14 +84,16 @@ const Login = () => {
             </form>
         </div>
     );
-}
+  }
 
 export default Login;
 
 
 
+/*
+
 //  <div className="login-container">
-// {/* Login Card */}
+// /* Login Card */
 // <div className="card login-card">
 //     <h2>Login</h2>
 //     <form>
@@ -113,3 +115,4 @@ export default Login;
 //     </form>
 // </div>
 // </div> 
+
