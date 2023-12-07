@@ -1,3 +1,17 @@
 .container {
-    margin-bottom: auto;
+     margin-bottom: auto;
+}
+.navbar-header{
+    font-family: 'Gasoek One', sans-serif;
+    margin-left: 10px;
+    color:#fff;
+}
+.basketball-icon{
+    margin-left: 10px;
+    color:#fff;
+}
+
+#navLink{
+    color:white;
+    font-family: 'Montserrat', sans-serif;
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import $ from "jquery";
+import NavBar from '../components/NavBar';
 
 function Cards(props) {
     const [playerStorage, setPlayerStorage] = useState([]);
@@ -93,6 +94,7 @@ function Cards(props) {
     }
 
     return props.teamPlayers.map((player, i) => (
+        <>
         <label key={i}>
             <input type="checkbox"/>
             <div className="flip-card" onClick={() => {getPlayerStats(i)}}>
@@ -109,8 +111,8 @@ function Cards(props) {
                 </div>
             </div>
         </label>
+        </>
     ));
 }
   
 export default Cards;
-  

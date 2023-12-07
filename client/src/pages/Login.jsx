@@ -5,9 +5,13 @@ import {useMutation} from '@apollo/client';
 import {LOGIN_USER} from '../utils/mutations';
 import { ADD_USER } from '../utils/mutations';
 import auth from '../utils/auth';
+import { useState } from 'react';
+import NavBar from '../components/NavBar';
+
 const Login = () => {
-    const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error, data }] = useMutation(LOGIN_USER);
+    const [formState, setFormState] = useState({ email: '', password: '', username: '' });
+    const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
+    const [addUser, {signupError, signupData}] = useMutation(ADD_USER);
     const handleChange = (event) => {
         const { name, value } = event.target;
     
@@ -35,8 +39,24 @@ const Login = () => {
           password: '',
         });
       };
+      const SignupFormSubmit  = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+    
+        try {
+          const { data } = await addUser({
+            variables: { ...formState },
+          });
+    
+          Auth.login(data.addUser.token);
+        } catch (e) {
+          console.error(e);
+        }
+      };
     
     return (
+      <div className='login-background'>
+        <NavBar/>
         <div className='loginSignUpForm'>
             <form onSubmit={LoginFormSubmit} className='loginForm'>
                 <h2 className='loginHeader'>Login</h2>
@@ -50,32 +70,35 @@ const Login = () => {
                 </div>
                 <Link to='/profile' type="submit" className="btn btn-primary">Login</Link>
             </form>
-            <form className='signUpForm'>
+            <form onSubmit={SignupFormSubmit} className='signUpForm'>
                 <h2 className='signupHeader'>Sign up</h2>
                 <div className="mb-3">
                     <label htmlFor="inputEmail" className="form-label">Email</label>
-                    <input type="email" className="form-control" id='inputEmail' aria-describedby="emailHelp"/>
+                    <input type="email" className="form-control" id='inputEmail' aria-describedby="emailHelp" value={formState.email} onChange={handleChange} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="inputUsername" className="form-label">Username</label>
-                    <input type="username" className="form-control" id='inputUsername' aria-describedby="usernameHelp"/>
+                    <input type="username" className="form-control" id='inputUsername' aria-describedby="usernameHelp" value={formState.username} onChange={handleChange}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="inputNewPassword" className="form-label">Password</label>
-                    <input type="password" className="form-control" id='inputNewPassword'/>
+                    <input type="password" className="form-control" id='inputNewPassword' value={formState.password} onChange={handleChange}/>
                 </div>
                 <Link to='/profile' type="submit" className="btn btn-primary">Sign up</Link>
             </form>
         </div>
+        </div>
     );
-}
+  }
 
 export default Login;
 
 
 
+/*
+
 //  <div className="login-container">
-// {/* Login Card */}
+// /* Login Card */
 // <div className="card login-card">
 //     <h2>Login</h2>
 //     <form>
@@ -97,3 +120,4 @@ export default Login;
 //     </form>
 // </div>
 // </div> 
+

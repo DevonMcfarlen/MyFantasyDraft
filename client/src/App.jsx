@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
-// import Cards from './pages/Cards'
-import NavBar from './components/NavBar'
 // Import Bootstrap 
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -17,7 +15,6 @@ function App() {
 
   return (
    <ApolloProvider client={client}>
-      <NavBar />
       <Outlet/>
     </ApolloProvider>
   )
