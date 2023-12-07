@@ -1,8 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(to bottom right, #0a0f0d, #003973); 
+    color: #fff;
 }
 
 .container {
@@ -12,8 +13,8 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: #303030; 
+    color: #fcb045;
     padding: 20px 0;
     text-align: center;
 }
@@ -27,7 +28,6 @@ main {
     padding: 20px 0;
 }
 
-/* Carousel Slide Styles */
 .slick-slide {
     position: relative;
     display: flex;
@@ -48,66 +48,53 @@ main {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    color: white;
+    color: #fff;
     text-align: left;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.7); 
-    border-left: 5px solid #007bff; 
+    background: rgba(0, 0, 0, 0.7);
+    border-left: 5px solid #fcb045;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    max-width: 350px; 
+    max-width: 350px;
 }
 
-.overlay-text h2 {
-    font-size: 1.8rem; 
-    font-weight: bold;
-    margin: 0 0 10px 0; 
-    line-height: 1.2;
-}
-
-.overlay-text p {
-    font-size: 1.1rem; 
+.overlay-text h2, .overlay-text p {
     margin: 0;
-    line-height: 1.5; 
 }
-
-
 
 .welcome-section {
-    background-color: white;
+    background-color: #444;
     margin-bottom: 30px;
     padding: 60px 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 0px 15px 5px #fcb045;
 }
 
 .welcome-section:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
-
 
 .get-started-button {
     display: inline-block;
     margin-top: 30px;
     padding: 15px 30px;
-    background-color: #007bff;
-    color: white;
+    background-color: #fcb045;
+    color: #1a1a1a;
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .get-started-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #ffcc70; 
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
-
 
 .feature-cards-container {
     display: flex;
@@ -116,18 +103,30 @@ main {
 }
 
 .feature-card {
-    background-color: white;
     flex: 1;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s, background 0.3s;
+    color: #fff;
+}
+
+.feature-card:nth-child(1) {
+    background: linear-gradient(145deg, #a6c0fe, #4a6fea);
+}
+
+.feature-card:nth-child(2) {
+    background: linear-gradient(145deg, #ffe29f, #ff8e30);
+}
+
+.feature-card:nth-child(3) {
+    background: linear-gradient(145deg, #c3e88d, #4caf50);
 }
 
 .feature-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
 }
-
 
 @media (max-width: 768px) {
     .feature-cards-container {
