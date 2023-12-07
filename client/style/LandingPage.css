@@ -30,6 +30,15 @@ main {
     padding: 20px 0;
 }
 
+.landing-header{
+    display:flex;
+    justify-content: center;
+}
+
+.landingIcon{
+    margin-left: 10px;
+}
+
 .slick-slide {
     position: relative;
     display: flex;
@@ -120,6 +129,7 @@ main {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .feature-card {

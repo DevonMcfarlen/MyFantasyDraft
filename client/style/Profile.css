@@ -3,7 +3,17 @@
     border: none;
     background: none;
 }
-
-.table-striped{
+.table{
     line-height:60px;
+    width:50%;
+    margin: 0 auto;
+    margin-top:50px;
+    border:2px solid white;
+}
+
+.profile-header{
+    text-align: center;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+    margin-top:50px;
 }
