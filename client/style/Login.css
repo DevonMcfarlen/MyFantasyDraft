@@ -6,9 +6,9 @@
     height:80vh;
 }
 .loginForm{
-    border:2px solid black;
+    border:5px solid #fff;
     border-radius: 15px;
-    height:40vh;
+    height:50vh;
     width:20vw;
     padding:10px;
     display: flex;
@@ -18,9 +18,9 @@
 
 .signUpForm{
     margin-left:100px;
-    border:2px solid black;
+    border:5px solid #fff;
     border-radius: 15px;
-    height:40vh;
+    height:50vh;
     width:20vw;
     padding:10px;
     display: flex;
