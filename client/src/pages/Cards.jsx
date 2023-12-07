@@ -93,26 +93,28 @@ function Cards(props) {
         
     }
 
-    return props.teamPlayers.map((player, i) => (
-        <>
-        <label key={i}>
-            <input type="checkbox"/>
-            <div className="flip-card" onClick={() => {getPlayerStats(i)}}>
-                <div className="front">
-                    <h2>{player.firstname} {player.lastname}</h2>
-                    <p>Jersey # {player.leagues.standard.jersey}</p>
-                </div>
-                <div className="back">
-                    <p>Avg points: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aPoints) }</p>
-                    <p>Avg assists: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists)}</p>
-                    <p>Avg Total Rebounds: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb)}</p>
-                    <p>Avg FGP: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP)}</p>
-                    <button className='backBtn' onClick={() => {savePlayer()}}>Add Player</button>
-                </div>
-            </div>
-        </label>
-        </>
-    ));
+    return (
+        <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap'}}>
+            {props.teamPlayers.map((player, i) =>
+                <label key={i}>
+                    <input type="checkbox"/>
+                    <div className="flip-card" onClick={() => {getPlayerStats(i)}}>
+                        <div className="front">
+                            <h2>{player.firstname} {player.lastname}</h2>
+                            <p>Jersey # {player.leagues.standard.jersey}</p>
+                        </div>
+                        <div className="back">
+                            <p>Avg points: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aPoints) }</p>
+                            <p>Avg assists: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists)}</p>
+                            <p>Avg Total Rebounds: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb)}</p>
+                            <p>Avg FGP: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP)}</p>
+                            <button className='backBtn' onClick={() => {savePlayer()}}>Add Player</button>
+                        </div>
+                    </div>
+                </label>
+            )}
+        </div>
+    );
 }
   
 export default Cards;
