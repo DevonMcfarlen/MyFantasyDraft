@@ -37,6 +37,16 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+        addPlayer: async (parent, { name, jersey, stats, username}) => {
+            const player = await Player.create({username, email, password})
+            
+            await User.findOneAndUpdate(
+                {username: username},
+                { $addToSet: { players: player._id } }
+            );
+
+            return player;
+        },
     }
 };
 
