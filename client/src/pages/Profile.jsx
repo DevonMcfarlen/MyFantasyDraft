@@ -3,6 +3,9 @@ import '../../style/Profile.css'
 import { FaRegTrashAlt } from "react-icons/fa";
 import NavBar from '../components/NavBar';
 import { useQuery, gql } from '@apollo/client'
+import { useState } from 'react';
+
+
 const GET_PLAYERS = gql`
 query User($username: String!) {
     user(username: $username) {
@@ -15,13 +18,19 @@ query User($username: String!) {
     }
   }
 `
-const Profile = () =>{ 
-    // const {loading, error, data} = useQuery(GET_PLAYERS, username:'username')
-    // if (loading) return <p>Loading...</p>;
-    // if (error) return <p>Error: {error.message}</p>;
 
-    // const players = data.user.players
-    // console.log(JSON.stringify(players,null,2))
+const Profile = () =>{ 
+  const [players, setPlayers] = useState([]);
+  const { loading, error, data } = useQuery(GET_PLAYERS, {
+    variables: { username: 'Admin3' },
+  });
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>;
+
+  // setPlayers(data.users.players)
+  console.log(data)
+  console.log(JSON.stringify(players,null,2))
 
     return(
         <div className='profile-background' style={{minHeight :'100vh', background:'linear-gradient(to bottom right, #0a0f0d, #003973'}}>
