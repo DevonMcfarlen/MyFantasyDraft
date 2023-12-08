@@ -16,11 +16,11 @@ query User($username: String!) {
   }
 `
 const Profile = () =>{ 
-    // const {loading, error, data} = useQuery(GET_PLAYERS, username:'user_id')
+    // const {loading, error, data} = useQuery(GET_PLAYERS, username:'username')
     // if (loading) return <p>Loading...</p>;
     // if (error) return <p>Error: {error.message}</p>;
 
-    // const players = data.players
+    // const players = data.user.players
     // console.log(JSON.stringify(players,null,2))
 
     return(
@@ -31,26 +31,20 @@ const Profile = () =>{
             <thead>
             <tr>
                 <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat'}}>Jersey #</th>
-                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>First</th>
-                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>Last</th>
-                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>Avg Points</th>
-                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>Avg Assists</th>
-                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>Avg Total Rebounds</th>
-                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>Avg FGP</th>
+                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>Name</th>
+                <th scope="col" className='bg-transparent' style={{color:'white', fontFamily:'Montserrat' }}>Player Stats</th>
                 <th scope='col' className='bg-transparent' style={{color:'white', fontFamily:'Montserrat'}}>Remove</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row" className='bg-transparent jerseyNum' style={{color:'white',fontFamily:'Montserrat' }}>1</th>
-                <td className='bg-transparent firstName' style={{color:'white',fontFamily:'Montserrat'}}>Mark</td>
-                <td className='bg-transparent lastName' style={{color:'white', fontFamily:'Montserrat'}}>Otto</td>
-                <td className='bg-transparent points' style={{color:'white',fontFamily:'Montserrat'}}>0</td>
-                <td className='bg-transparent assists' style={{color:'white', fontFamily:'Montserrat'}}>0</td>
-                <td className='bg-transparent rebounds' style={{color:'white',fontFamily:'Montserrat'}}>0</td>
-                <td className='bg-transparent FGP' style={{color:'white', fontFamily:'Montserrat'}}>0</td>
+              {players.map((player) => (
+                <tr key={player._id}>
+                <th scope="row" className='bg-transparent jerseyNum' style={{color:'white',fontFamily:'Montserrat' }}>{player.jersey}</th>
+                <td className='bg-transparent name' style={{color:'white',fontFamily:'Montserrat'}}>{player.name}</td>
+                <td className='bg-transparent stats' style={{color:'white',fontFamily:'Montserrat'}}>{player.stats}</td>
                 <td className='bg-transparent'><button className='trashBtn' style={{color:'white'}} ><FaRegTrashAlt/></button></td>
             </tr>
+            ))}
             </tbody> 
         </table>
         </div>
