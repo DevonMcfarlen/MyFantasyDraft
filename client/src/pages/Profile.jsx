@@ -4,12 +4,13 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import NavBar from '../components/NavBar';
 import { useQuery, gql } from '@apollo/client'
 const GET_PLAYERS = gql`
-query {
-    players {
-        _id
+query Query($username: String!) {
+    user(username: $username) {
+      players {
         name
         jersey
         stats
+      }
     }
   }
 `
