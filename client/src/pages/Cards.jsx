@@ -59,7 +59,7 @@ function Cards(props) {
             playerStats.aPoints = Math.round((((tPoints/pGLength)) + Number.EPSILON) * 100) / 100;
             playerStats.aAssists = Math.round((((tAssists/pGLength)) + Number.EPSILON) * 100) / 100;
             playerStats.aTotReb = Math.round((((tTotReb/pGLength)) + Number.EPSILON) * 100) / 100;
-            playerStats.aFGP = Math.round((((tTotReb/pGLength)) + Number.EPSILON) * 100) / 100;
+            playerStats.aFGP = Math.round((((tFGP/pGLength)) + Number.EPSILON) * 100) / 100;
             
             setPlayerStorage([{id: response.parameters.id, stats: playerStats}, ...playerStorage]);
         });
