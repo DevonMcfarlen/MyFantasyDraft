@@ -12,6 +12,7 @@ query User($username: String!) {
       players {
         _id
         name
+        playerName
         jersey
         stats
       }
@@ -28,9 +29,9 @@ const Profile = () =>{
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>;
 
-  // setPlayers(data.users.players)
-  console.log(data)
-  console.log(JSON.stringify(players,null,2))
+  //setPlayers(data.user.players)
+  console.log('this is the data object');
+  console.log(data.user.players);
 
     return(
         <div className='profile-background' style={{minHeight :'100vh', background:'linear-gradient(to bottom right, #0a0f0d, #003973'}}>
@@ -46,14 +47,14 @@ const Profile = () =>{
             </tr>
             </thead>
             <tbody>
-              {players.map((player) => (
+              {!players.length ? ('') : (players.map((player) => (
                 <tr key={player._id}>
                 <th scope="row" className='bg-transparent jerseyNum' style={{color:'white',fontFamily:'Montserrat' }}>{player.jersey}</th>
                 <td className='bg-transparent name' style={{color:'white',fontFamily:'Montserrat'}}>{player.name}</td>
                 <td className='bg-transparent stats' style={{color:'white',fontFamily:'Montserrat'}}>{player.stats}</td>
                 <td className='bg-transparent'><button className='trashBtn' style={{color:'white'}} ><FaRegTrashAlt/></button></td>
             </tr>
-            ))}
+            )))}
             </tbody> 
         </table>
         </div>
