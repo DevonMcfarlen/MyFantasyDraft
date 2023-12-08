@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import $ from "jquery";
 import NavBar from '../components/NavBar';
+import { useMutation } from '@apollo/client';
+import { ADD_PLAYER } from '../utils/mutations';
+import { QUERY_ME, QUERY_PLAYER } from '../utils/queries';
 
 function Cards(props) {
     const [playerStorage, setPlayerStorage] = useState([]);
@@ -90,7 +93,15 @@ function Cards(props) {
     // <img src={!imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).src)}/>
 
     function savePlayer() {
-        
+        const [addPlayer , {error}] = useMutation
+        (ADD_PLAYER, {
+            refetchQueries:[
+                QUERY_PLAYER,
+                'getplayer',
+                QUERY_ME,
+                'me'
+            ]
+        })
     }
 
     return (

@@ -1,5 +1,8 @@
+[
 {
-    "name" : "test name",
+    "name" : "Admin3",
+    "playerName" : "test name",
     "jersey": 999,
     "stats" : "N/A"
 }
+]
