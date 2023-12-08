@@ -19,7 +19,7 @@ class AuthService {
     }
 
     getToken() {
-        return localStorage.setItem('id_token', idToken);
+        return localStorage.getItem('id_token');
     }
 
     login(idToken) {
