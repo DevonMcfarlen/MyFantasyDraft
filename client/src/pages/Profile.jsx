@@ -12,6 +12,7 @@ query User($username: String!) {
       players {
         _id
         name
+        playerName
         jersey
         stats
       }
@@ -28,9 +29,9 @@ const Profile = () =>{
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>;
 
-  // setPlayers(data.users.players)
-  console.log(data)
-  console.log(JSON.stringify(players,null,2))
+  //setPlayers(data.user.players)
+  console.log('this is the data object');
+  console.log(data.user.players);
 
     return(
         <div className='profile-background' style={{minHeight :'100vh', background:'linear-gradient(to bottom right, #0a0f0d, #003973'}}>
