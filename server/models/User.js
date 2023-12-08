@@ -25,7 +25,7 @@ const userSchema = new Schema({
             ref: 'Player',
             maxlength: 10,
         }
-    ]
+    ],
 });
 
 userSchema.pre('save', async function (next) {
