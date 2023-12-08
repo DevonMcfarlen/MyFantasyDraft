@@ -19,17 +19,17 @@ class AuthService {
     }
 
     getToken() {
-        return localStorage.setItem('id_token', idToken);
+        return localStorage.getItem('id_token');
     }
 
     login(idToken) {
         localStorage.setItem('id_token', idToken);
-        window.location.assign('/');
+        window.location.assign('/players');
     }
 
     logout() {
         localStorage.removeItem('id_token');
-        window.location.reload();
+        window.location.assign('/');
     }
 }
 

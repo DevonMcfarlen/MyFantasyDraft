@@ -1,8 +1,26 @@
+import React from 'react';
 import '../../style/Profile.css'
 import { FaRegTrashAlt } from "react-icons/fa";
 import NavBar from '../components/NavBar';
-
+import { useQuery, gql } from '@apollo/client'
+const GET_PLAYERS = gql`
+query {
+    players {
+        _id
+        name
+        jersey
+        stats
+    }
+  }
+`
 const Profile = () =>{ 
+    const {loading, error, data} = useQuery(GET_PLAYERS, "tester")
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+
+    const players = data.players
+    console.log(JSON.stringify(players,null,2))
+
     return(
         <div className='profile-background' style={{minHeight :'100vh', background:'linear-gradient(to bottom right, #0a0f0d, #003973'}}>
         <NavBar/>
