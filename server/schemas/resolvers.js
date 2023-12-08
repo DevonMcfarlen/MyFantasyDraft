@@ -38,7 +38,7 @@ const resolvers = {
             return { token, user };
         },
         addPlayer: async (parent, { name, jersey, stats, username}) => {
-            const player = await Player.create({username, email, password})
+            const player = await Player.create({name, jersey, stats })
             
             await User.findOneAndUpdate(
                 {username: username},
@@ -47,6 +47,13 @@ const resolvers = {
 
             return player;
         },
+        removePlayer: async (parent, {id, username}) => {
+            
+            await User.findOneAndDelete(
+                {username: username},
+                { $removeFromSet: { players:id } }
+            );
+        }
     }
 };
 

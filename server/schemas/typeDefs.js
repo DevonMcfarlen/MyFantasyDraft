@@ -30,6 +30,7 @@ const typeDefs = `
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addPlayer(name: String!, jersey: String!, stats: String!, username: String!): User
+        removePlayer(id:String!, username:String!):User 
     }
 `
 
