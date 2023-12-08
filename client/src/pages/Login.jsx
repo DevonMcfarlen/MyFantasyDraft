@@ -66,8 +66,6 @@ const Login = () => {
         });
     };
 
-    
-
     return (
         <div className='login-background'>
             <NavBar />
@@ -103,7 +101,7 @@ const Login = () => {
                 </form>
             </div>
         </div>
-    );
+     );
 }
 
 export default Login;
