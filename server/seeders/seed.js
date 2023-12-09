@@ -10,9 +10,9 @@ db.once('open', async () => {
     await User.create(userSeeds);
 
     for (let i = 0; i < playerSeeds.length; i++) {
-      const { _id, name } = await Player.create(playerSeeds[i]);
+      const { _id} = await Player.create(playerSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: name },
+        { username: 'Admin3' },
         {
           $addToSet: {
             players: _id,
