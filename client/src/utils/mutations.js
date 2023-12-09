@@ -28,6 +28,7 @@ export const ADD_PLAYER = gql`
   mutation addPlayer($playername: String!, $jersey: String!, $stats: String!) {
     addPlayer(playerName: $playerName, jersey: $jersey, stats: $stats) {
       player {
+        _id
         playerName
         jersey
         stats
