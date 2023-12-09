@@ -37,7 +37,7 @@ const Login = () => {
             const { data } = await login({
                 variables: { ...loginFormState },
             });
-            Auth.login(data.login.token);
+            Auth.login(data.login.token, data.login.user.username);
         } catch (e) {
             console.error(e);
         }

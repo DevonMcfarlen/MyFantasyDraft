@@ -23,13 +23,13 @@ query User($username: String!) {
 const Profile = () =>{ 
   const [players, setPlayers] = useState([]);
   const { loading, error, data } = useQuery(GET_PLAYERS, {
-    variables: { username: 'Admin3' },
+    variables: { username: localStorage.getItem('username') },
   });
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>;
 
-  //setPlayers(data.user.players)
+  // setPlayers(data.user.players)
   console.log('this is the data object');
   console.log(data.user.players);
 
