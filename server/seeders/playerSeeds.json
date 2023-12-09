@@ -1,8 +1,7 @@
 [
-{
-    "name" : "Admin3",
-    "playerName" : "test name",
-    "jersey": 999,
-    "stats" : "N/A"
-}
+    {
+        "playerName" : "test name",
+        "jersey": 999,
+        "stats" : "N/A"
+    }
 ]

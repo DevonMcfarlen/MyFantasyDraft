@@ -3,13 +3,13 @@ import $ from "jquery";
 import NavBar from '../components/NavBar';
 import { useMutation } from '@apollo/client';
 import { ADD_PLAYER } from '../utils/mutations';
-import { QUERY_ME, QUERY_PLAYER } from '../utils/queries';
+import { QUERY_PLAYER } from '../utils/queries';
 
 function Cards(props) {
     const [playerStorage, setPlayerStorage] = useState([]);
     const [imageStorage, setImageStorage] = useState([]);
     const [addPlayer] = useMutation(ADD_PLAYER, {
-        refetchQueries: [{ query: QUERY_ME }, { query: QUERY_PLAYER }],
+        refetchQueries: [{ query: QUERY_PLAYER }],
     })
 
     var nbaSettings = {};
@@ -99,15 +99,9 @@ function Cards(props) {
         if (!playerStorage.find(obj => obj.id === player.id)) {
             addPlayer({
                 variables: {
-                    playerId: player.id,
                     playerName: `${player.firstname} ${player.lastname}`,
                     jersey: player.leagues.standard.jersey,
-                    stats: {
-                        points: playerStats.aPoints,
-                        assists: playerStats.aAssists,
-                        totReb: playerStats.aTotReb,
-                        fgp: playerStats.aFGP,
-                },
+                    stats: `points: ${playerStats.aPoints} \n assists: ${playerStats.aAssists} \n totReb: ${playerStats.aTotReb} \n fgp: ${playerStats.aFGP}`,
             }
         })
                 .then(response => {
