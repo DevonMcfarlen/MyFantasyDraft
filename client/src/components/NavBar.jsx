@@ -6,6 +6,7 @@ import Auth from '../utils/auth';
 
 const NavBar = () => {
   const currentPage = useLocation().pathname;
+  const isLoggedIn = Auth.loggedIn();
 
   const handleLogout = () => {
     Auth.logout();
@@ -30,7 +31,7 @@ const NavBar = () => {
             >
               Players
             </Link>
-            {Auth.loggedIn() ? (
+            {isLoggedIn ? (
               <Link id='navLink'
                 to="/"
                 className="nav-link"
@@ -46,12 +47,14 @@ const NavBar = () => {
                 Login
               </Link>
             )}
+            {isLoggedIn && (
             <Link id='navLink'
               to="/profile"
               className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
             >
               Profile
             </Link>
+            )}
           </div>
         </div>
     </nav>
