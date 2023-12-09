@@ -3,7 +3,7 @@ import '../../style/Profile.css'
 import { FaRegTrashAlt } from "react-icons/fa";
 import NavBar from '../components/NavBar';
 import { useQuery, gql } from '@apollo/client'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 const GET_PLAYERS = gql`
@@ -21,7 +21,7 @@ query User($username: String!) {
 `
 
 const Profile = () =>{ 
-  const [players, setPlayers] = useState([]);
+  // const [players, setPlayers] = useState([]);
   const { loading, error, data } = useQuery(GET_PLAYERS, {
     variables: { username: localStorage.getItem('username') },
   });
@@ -47,7 +47,7 @@ const Profile = () =>{
             </tr>
             </thead>
             <tbody>
-              {!players.length ? ('') : (players.map((player) => (
+              {!data.user.players.length ? ('') : (data.user.players.map((player) => (
                 <tr key={player._id}>
                 <th scope="row" className='bg-transparent jerseyNum' style={{color:'white',fontFamily:'Montserrat' }}>{player.jersey}</th>
                 <td className='bg-transparent name' style={{color:'white',fontFamily:'Montserrat'}}>{player.name}</td>
