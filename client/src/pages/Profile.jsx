@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../../style/Profile.css'
 import { FaRegTrashAlt } from "react-icons/fa";
 import NavBar from '../components/NavBar';
@@ -10,9 +10,15 @@ import { GET_PLAYERS } from '../utils/queries'
 
 const Profile = () =>{ 
   // const [players, setPlayers] = useState([]);
-  const { loading, error, data } = useQuery(GET_PLAYERS, {
+
+  const { loading, error, data, refetch } = useQuery(GET_PLAYERS, {
     variables: { username: localStorage.getItem('username') },
   });
+  useEffect(() => {
+    refetch();
+    localStorage.removeItem('playerChange')
+  }, [localStorage.getItem('playerChange')]);
+  
 
   const [removePlayer] = useMutation(REMOVE_PLAYER);
 
@@ -20,10 +26,11 @@ const Profile = () =>{
     console.log(removePlayerId)
     console.log(localStorage.getItem('username'))
     try {
-      const { data } = removePlayer({
+      const { data } = await removePlayer({
         variables: { username: localStorage.getItem('username'), removePlayerId },
       });
       console.log(data);
+      localStorage.setItem('playerChange', true);
     } catch (err) {
       console.error(err);
     }
