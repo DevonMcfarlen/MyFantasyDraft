@@ -37,9 +37,12 @@ export const ADD_PLAYER = gql`
   }
 `;
 
+
 export const REMOVE_PLAYER = gql`
   mutation removePlayer($id: ID!, $username: String!) {
     removePlayer(id: $id, username: $username) {
+      _id
+      username
     }
   }
 `;
