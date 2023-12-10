@@ -22,15 +22,13 @@ const typeDefs = `
     type Query {
         users: [User]!
         user(username: String!): User
-        players(username: String): [Player]
-        player(playerId: ID!): Player
     }
 
     type Mutation{
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
-        addPlayer(playerName: String!, jersey: String!, stats: String!, username: String!): User
-        removePlayer(id:String!, username:String!):User 
+        addPlayer(username: String!, playerName: String!, jersey: String!, stats: String!): User
+        removePlayer(username:String!, removePlayerId:String!):User 
     }
 `
 

@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const {User, Player } = require('../models');
+const {User} = require('../models');
 const userSeeds = require('./userSeeds.json');
 const playerSeeds = require('./playerSeeds.json');
 
@@ -10,12 +10,16 @@ db.once('open', async () => {
     await User.create(userSeeds);
 
     for (let i = 0; i < playerSeeds.length; i++) {
-      const { _id} = await Player.create(playerSeeds[i]);
+      const { playerName, jersey, stats} = playerSeeds[i];
       const user = await User.findOneAndUpdate(
         { username: 'Admin3' },
         {
           $addToSet: {
-            players: _id,
+            players: {
+              playerName,
+              jersey,
+              stats
+            }
           },
         }
       );
