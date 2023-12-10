@@ -19,16 +19,24 @@ export const ADD_USER = gql`
       user {
         _id
         username
+        email
+        password
+        players {
+          _id
+          playerName
+          jersey
+          stats
+        }
       }
     }
   }
 `;
 
 export const ADD_PLAYER = gql`
-  mutation addPlayer($playername: String!, $jersey: String!, $stats: String!) {
-    addPlayer(playerName: $playerName, jersey: $jersey, stats: $stats) {
-       player {
-        _id
+  mutation addPlayer($username: String!, $playerName: String!, $jersey: String!, $stats: String!) {
+    addPlayer(username: $username, playerName: $playerName, jersey: $jersey, stats: $stats) {
+      username
+      players {
         playerName
         jersey
         stats
@@ -37,12 +45,13 @@ export const ADD_PLAYER = gql`
   }
 `;
 
-
 export const REMOVE_PLAYER = gql`
-  mutation removePlayer($id: ID!, $username: String!) {
-    removePlayer(id: $id, username: $username) {
-      _id
+  mutation removePlayer($username: String!, $removePlayerId: String!) {
+    removePlayer(username: $username, removePlayerId: $removePlayerId) {
       username
+      players {
+        _id
+      }
     }
   }
 `;

@@ -2,6 +2,6 @@
     {
         "playerName" : "test name",
         "jersey": 999,
-        "stats" : "N/A"
+        "stats" : "points: 10 \n assists: 10 \n totReb: 10 \n fgp: 10"
     }
 ]

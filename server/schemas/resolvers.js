@@ -1,4 +1,4 @@
-const { User, Player } = require('../models');
+const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -8,14 +8,7 @@ const resolvers = {
         },
         user: async (parent, {username}) => {
             return User.findOne({username}).populate("players");
-        },
-        players: async (parent, {username}) => {
-            const params = username ? {username} : {};
-            return Player.find(params).sort({ createdAt: -1});
-        },
-        player: async (parent, { playerId }) => {
-            return Player.findOne({_id: playerId});
-        },
+        }
     },
 
 
@@ -37,21 +30,22 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addPlayer: async (parent, { playerName, jersey, stats, username}) => {
-            const player = await Player.create({playerName, jersey, stats })
-            
-            await User.findOneAndUpdate(
+        addPlayer: async (parent, {username, playerName, jersey, stats}) => {
+            return User.findOneAndUpdate(
                 {username: username},
-                { $addToSet: { players: player._id } }
+                { $addToSet: { players: { 
+                    playerName: playerName,
+                    jersey: jersey,
+                    stats: stats
+                } } },
+                { new: true }
             );
-
-            return player;
         },
-        removePlayer: async (parent, {id, username}) => {
-            
-            await User.findOneAndDelete(
+        removePlayer: async (parent, {username, removePlayerId}) => {
+            return User.findOneAndUpdate(
                 {username: username},
-                { $removeFromSet: { players:id } }
+                { $pull: { players: {_id: removePlayerId } } },
+                { new: true }
             );
         }
     
