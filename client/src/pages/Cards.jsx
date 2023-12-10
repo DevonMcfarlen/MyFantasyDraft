@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import $ from "jquery";
-import NavBar from '../components/NavBar';
 import { useMutation } from '@apollo/client';
 import { ADD_PLAYER } from '../utils/mutations';
-import { QUERY_PLAYER } from '../utils/queries';
 
 function Cards(props) {
     const [playerStorage, setPlayerStorage] = useState([]);
     const [imageStorage, setImageStorage] = useState([]);
-    const [addPlayer] = useMutation(ADD_PLAYER, {
-        refetchQueries: [{ query: QUERY_PLAYER }],
-    })
+    const [addPlayer] = useMutation(ADD_PLAYER);
 
     var nbaSettings = {};
 
@@ -95,27 +91,24 @@ function Cards(props) {
     //{setTimeout(() => {getPlayerImage(player)}, 400*i)}
     // <img src={!imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).src)}/>
 
-    function savePlayer(player,i) {
-        if (!playerStorage.find(obj => obj.id === player.id)) {
-            addPlayer({
+    const savePlayer = async (player, i) => {
+        console.log(player);
+        console.log(localStorage.getItem('username'))
+        try {
+            const {data} = await addPlayer({
                 variables: {
+                    username: localStorage.getItem('username'),
                     playerName: `${player.firstname} ${player.lastname}`,
-                    jersey: player.leagues.standard.jersey,
-                    stats: `points: ${playerStats.aPoints} \n assists: ${playerStats.aAssists} \n totReb: ${playerStats.aTotReb} \n fgp: ${playerStats.aFGP}`,
-            }
-        })
-                .then(response => {
-                    console.log('Player added successfully', response);
-                })
-                .catch(error => {
-                    console.error('Error adding player', error);
-                    console.error('GraphQL errors:', error.graphQLErrors);
-                    console.error('Network error:', error.networkError);
-                });
-        } else {
-            console.log('Player already saved');
-        }
-    }
+                    jersey: `${player.leagues.standard.jersey}`,
+                    stats: `points: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aPoints} \n assists: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists} \n totReb: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb} \n fgp: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP}`
+                }
+            })
+        } catch(error) {
+            console.error('Error adding player', error);
+            console.error('GraphQL errors:', error.graphQLErrors);
+            console.error('Network error:', error.networkError);
+        };
+    }   
             
 
     return (
@@ -133,7 +126,7 @@ function Cards(props) {
                             <p>Avg assists: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists)}</p>
                             <p>Avg Total Rebounds: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb)}</p>
                             <p>Avg FGP: { !playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP)}</p>
-                            <button className='backBtn btn btn-primary' onClick={() => {savePlayer(player,i)}}>Add Player</button>
+                            <button className='backBtn btn btn-primary' onClick={() => {savePlayer(player, i)}}>Add Player</button>
                         </div>
                     </div>
                 </label>

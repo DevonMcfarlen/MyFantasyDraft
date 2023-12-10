@@ -21,9 +21,21 @@ const userSchema = new Schema({
     },
     players: [
         {
-            type: Schema.Types.ObjectId,
-            ref: 'Player',
-            maxlength: 10,
+            playerName: {
+                type: String,
+                required: true,
+                trim: true,
+            },
+            jersey: {
+                type: String,
+                required: true,
+                trim: true,
+            },
+            stats: {
+                type: String,
+                required: true,
+                trim: true,
+            }
         },
     ],
 });

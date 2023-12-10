@@ -5,21 +5,8 @@ import NavBar from '../components/NavBar';
 import { useQuery, gql } from '@apollo/client'
 import { useMutation } from '@apollo/client';
 import { REMOVE_PLAYER } from '../utils/mutations';
+import { GET_PLAYERS } from '../utils/queries'
 // import { useState } from 'react';
-
-
-const GET_PLAYERS = gql`
-query User($username: String!) {
-    user(username: $username) {
-      players {
-        _id
-        playerName
-        jersey
-        stats
-      }
-    }
-  }
-`
 
 const Profile = () =>{ 
   // const [players, setPlayers] = useState([]);
@@ -29,10 +16,12 @@ const Profile = () =>{
 
   const [removePlayer] = useMutation(REMOVE_PLAYER);
 
-  const handleRemovePlayer = async (playerId) => {
+  const handleRemovePlayer = async (removePlayerId) => {
+    console.log(removePlayerId)
+    console.log(localStorage.getItem('username'))
     try {
       const { data } = removePlayer({
-        variables: { playerId, username: localStorage.getItem('username') },
+        variables: { username: localStorage.getItem('username'), removePlayerId },
       });
       console.log(data);
     } catch (err) {
@@ -64,7 +53,7 @@ const Profile = () =>{
               {!data.user.players.length ? ('') : (data.user.players.map((player) => (
                  <tr key={player._id}>
                  <th scope="row" className='bg-transparent jerseyNum' style={{color:'white',fontFamily:'Montserrat' }}>{player.jersey}</th>
-                 <td className='bg-transparent name'style={{color:'white',fontFamily:'Montserrat'}}>{player.name}</td>
+                 <td className='bg-transparent name'style={{color:'white',fontFamily:'Montserrat'}}>{player.playerName}</td>
                  <td className='bg-transparent stats'style={{color:'white',fontFamily:'Montserrat'}}>{player.stats}</td>
                  <td className='bg-transparent'>
                    <button className='trashBtn' style={{ color: 'white' }} onClick={() => handleRemovePlayer(player._id)}>
