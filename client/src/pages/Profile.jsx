@@ -64,7 +64,7 @@ const Profile = () =>{
               {!data.user.players.length ? ('') : (data.user.players.map((player) => (
                  <tr key={player._id}>
                  <th scope="row" className='bg-transparent jerseyNum' style={{color:'white',fontFamily:'Montserrat' }}>{player.jersey}</th>
-                 <td className='bg-transparent name'style={{color:'white',fontFamily:'Montserrat'}}>{player.name}</td>
+                 <td className='bg-transparent name'style={{color:'white',fontFamily:'Montserrat'}}>{player.playerName}</td>
                  <td className='bg-transparent stats'style={{color:'white',fontFamily:'Montserrat'}}>{player.stats}</td>
                  <td className='bg-transparent'>
                    <button className='trashBtn' style={{ color: 'white' }} onClick={() => handleRemovePlayer(player._id)}>
