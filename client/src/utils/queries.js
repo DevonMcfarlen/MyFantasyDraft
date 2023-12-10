@@ -17,7 +17,7 @@ query user($username: String!) {
 `;
 
 export const QUERY_PLAYER = gql`
-    query getplayer {
+    query player {
         player {
             _id
             playerName

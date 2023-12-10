@@ -13,7 +13,6 @@ query User($username: String!) {
     user(username: $username) {
       players {
         _id
-        name
         playerName
         jersey
         stats
@@ -32,8 +31,8 @@ const Profile = () =>{
 
   const handleRemovePlayer = async (playerId) => {
     try {
-      const { data } = await removePlayer({
-        variables: { playerId },
+      const { data } = removePlayer({
+        variables: { playerId, username: localStorage.getItem('username') },
       });
       console.log(data);
     } catch (err) {
