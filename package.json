@@ -1,6 +1,9 @@
 {
     "name": "myfantasydraft",
     "version": "1.0.0",
+    "engines": {
+        "node": "18.18.0"
+    },
     "main": "server/server.js",
     "scripts": {
         "start": "node server/server.js --ignore client",
