@@ -47,6 +47,8 @@ const resolvers = {
 
             return player;
         },
+
+        /*
         removePlayer: async (parent, {id, username}) => {
             
             await User.findOneAndDelete(
@@ -54,7 +56,10 @@ const resolvers = {
                 { $removeFromSet: { players:id } }
             );
         }
+    */
+    
     }
+
 };
 
 module.exports = resolvers;

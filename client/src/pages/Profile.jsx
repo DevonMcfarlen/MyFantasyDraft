@@ -4,7 +4,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import NavBar from '../components/NavBar';
 import { useQuery, gql } from '@apollo/client'
 import { useMutation } from '@apollo/client';
-import { REMOVE_PLAYER } from '../utils/mutations';
+// import { REMOVE_PLAYER } from '../utils/mutations';
 // import { useState } from 'react';
 
 
@@ -27,7 +27,7 @@ const Profile = () =>{
   const { loading, error, data } = useQuery(GET_PLAYERS, {
     variables: { username: localStorage.getItem('username') },
   });
-
+/*
   const [removePlayer] = useMutation(REMOVE_PLAYER);
 
   const handleRemovePlayer = async (playerId) => {
@@ -40,7 +40,7 @@ const Profile = () =>{
       console.error(err);
     }
   }
-
+*/
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>;
 

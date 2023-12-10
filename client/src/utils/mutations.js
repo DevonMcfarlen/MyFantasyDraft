@@ -27,7 +27,7 @@ export const ADD_USER = gql`
 export const ADD_PLAYER = gql`
   mutation addPlayer($playername: String!, $jersey: String!, $stats: String!) {
     addPlayer(playerName: $playerName, jersey: $jersey, stats: $stats) {
-      player {
+       player {
         _id
         playerName
         jersey
@@ -37,9 +37,13 @@ export const ADD_PLAYER = gql`
   }
 `;
 
+/*
+
 export const REMOVE_PLAYER = gql`
   mutation removePlayer($id: ID!, $username: String!) {
     removePlayer(id: $id, username: $username) {
     }
   }
 `;
+
+*/
