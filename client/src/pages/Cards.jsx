@@ -7,7 +7,6 @@ function Cards(props) {
     const [playerStorage, setPlayerStorage] = useState([]);
     const [imageStorage, setImageStorage] = useState([]);
     const [addPlayer] = useMutation(ADD_PLAYER);
-
     var nbaSettings = {};
 
     function setNBASettings(sentUrl) {
@@ -17,7 +16,7 @@ function Cards(props) {
             "method": "GET",
             "timeout": 0,
             "headers": {
-            "x-rapidapi-key": process.env.NBA_API,
+            "x-rapidapi-key": '09e77c0237msh7cf79c6d0985d69p119f9cjsnb5866ab39fe8',
             "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
             },
         };
@@ -33,7 +32,6 @@ function Cards(props) {
     function getPlayerStats(userPlayer) {
         if(playerStorage.find(obj => {return obj.id == props.teamPlayers[userPlayer].id}))
         {
-            console.log("found duplicate player");
             return;
         }
 
@@ -74,7 +72,7 @@ function Cards(props) {
             url: bingUrl,
             method: 'GET',
             headers: {
-            'X-RapidAPI-Key': process.env.BING_API,
+            'X-RapidAPI-Key': '09e77c0237msh7cf79c6d0985d69p119f9cjsnb5866ab39fe8',
             'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com'
             },
         };
@@ -92,8 +90,6 @@ function Cards(props) {
     // <img src={!imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}) ? ('') : (imageStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).src)}/>
 
     const savePlayer = async (player, i) => {
-        console.log(player);
-        console.log(localStorage.getItem('username'))
         try {
             const {data} = await addPlayer({
                 variables: {

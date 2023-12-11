@@ -23,13 +23,10 @@ const Profile = () =>{
   const [removePlayer] = useMutation(REMOVE_PLAYER);
 
   const handleRemovePlayer = async (removePlayerId) => {
-    console.log(removePlayerId)
-    console.log(localStorage.getItem('username'))
     try {
       const { data } = await removePlayer({
         variables: { username: localStorage.getItem('username'), removePlayerId },
       });
-      console.log(data);
       localStorage.setItem('playerChange', true);
     } catch (err) {
       console.error(err);
@@ -38,10 +35,6 @@ const Profile = () =>{
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>;
-
-  // setPlayers(data.user.players)
-  console.log('this is the data object');
-  console.log(data.user.players);
 
     return(
         <div className='profile-background' style={{minHeight :'100vh', background:'linear-gradient(to bottom right, #0a0f0d, #003973'}}>
