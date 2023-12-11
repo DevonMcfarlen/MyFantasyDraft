@@ -17,7 +17,7 @@ function Cards(props) {
             "method": "GET",
             "timeout": 0,
             "headers": {
-            "x-rapidapi-key": "09e77c0237msh7cf79c6d0985d69p119f9cjsnb5866ab39fe8",
+            "x-rapidapi-key": process.env.NBA_API,
             "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
             },
         };
@@ -74,7 +74,7 @@ function Cards(props) {
             url: bingUrl,
             method: 'GET',
             headers: {
-            'X-RapidAPI-Key': '09e77c0237msh7cf79c6d0985d69p119f9cjsnb5866ab39fe8',
+            'X-RapidAPI-Key': process.env.BING_API,
             'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com'
             },
         };
