@@ -32,7 +32,6 @@ const Login = () => {
 
     const LoginFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(loginFormState)
         try {
             const { data } = await login({
                 variables: { ...loginFormState },
@@ -49,7 +48,6 @@ const Login = () => {
 
     const SignupFormSubmit = async (event) => {
         event.preventDefault();
-        console.log('in signup')
         try {
             const { data } = await addUser({
                 variables: { ...signupFormState },
