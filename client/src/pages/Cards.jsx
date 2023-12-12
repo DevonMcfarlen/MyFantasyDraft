@@ -102,7 +102,8 @@ function Cards(props) {
                     jersey: `${player.leagues.standard.jersey}`,
                     stats: `points: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aPoints} \n assists: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aAssists} \n totReb: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aTotReb} \n fgp: ${playerStorage.find(obj => {return obj.id == props.teamPlayers[i].id}).stats.aFGP}`
                 }
-            })
+            });
+            localStorage.setItem('playerChange', true);
         } catch(error) {
             console.error('Error adding player', error);
             console.error('GraphQL errors:', error.graphQLErrors);
