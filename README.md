@@ -42,13 +42,13 @@ Acceptance Criteria:
 
 ## Usage <a name="usage"></a>
 
-Go to our [Website](https://myfantasydraft-3b76c1450b6a.herokuapp.com) and search for boardgames! You can make an account to leave reviews or comments, and to claim the board games that you own!
+Go to our [Website](https://myfantasydraft-3b76c1450b6a.herokuapp.com) and you'll see our home page with a lot of information about current teams and players in the NBA. If you check out the navigation bar on the upper right hand side, you'll see a login page. When you go to the login page, you will be able to login or create an account if you don't already have one. After you log in, you are directed to the players page! At the players page, you will see a drop down of all 30 teams in the NBA and will be able to go through the teams. Every time you select a team and press "search", you are given cards of all the current players from the current season, when you click on a card of your desired player, it will flip and give you that players current stats. You will also see an "add player" button, and when you press this button, the player (along with the stats) will be saved to your profile. NOTE: You will only be able to add/remove a player if you have an account with this application. You can then press the "profile" page on the navigation bar and here, you will see the player that you have added. You are also able to press the trash button in order to remove that player. You are able to save up to 10 players on your page so have fun creating your dream team!
 
 ![Website Screenshot](./public/playerspage.png)
 
 ## Future Development <a name="future-development"></a>
 
-- [ ] Finish README
+Of course there is always room for improvement, so we wish to one day add multiple sports onto this application, so that users can choose the sport that they desire and can participate in more than just the NBA! We also hope to be able to add every player's picture in the front of their cards. 
 
 ## Technologies <a name="technologies"></a>
 
