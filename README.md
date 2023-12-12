@@ -1,7 +1,7 @@
 # My Fantasy Draft
 
-Deployed Date: 
-Deployed Site: 
+Deployed Date: 12/10/2023 <br>
+Deployed Site: https://myfantasydraft-3b76c1450b6a.herokuapp.com
 
 # Table of Contents
 
@@ -42,7 +42,7 @@ Acceptance Criteria:
 
 ## Usage <a name="usage"></a>
 
-Go to our [Website]() and search for boardgames! You can make an account to leave reviews or comments, and to claim the board games that you own!
+Go to our [Website](https://myfantasydraft-3b76c1450b6a.herokuapp.com) and search for boardgames! You can make an account to leave reviews or comments, and to claim the board games that you own!
 
 ![Website Screenshot](./public/playerspage.png)
 
